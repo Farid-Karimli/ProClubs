@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container members">
+      <div class="row">
+          {% for member in data %}
+            <div class="col member">
+                <h3>{{ member['proName'] }}</h3>
+                <p>{{ member['name'] }}</p>
+                <p>Position: {{ member['favoritePosition'] }}</p>
+                <p>Goals: {{ member['goals'] }}</p>
+                <p>Assists: {{ member['assists'] }}</p>
+                <p>Games played: {{ member['gamesPlayed'] }}</p>
+            </div>
+          {% endfor %}
+      </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        let navLinks = document.getElementsByClassName("nav-link")
+        console.log(navLinks)
+
+       for (let element of navLinks) {
+            if (element.text==="Members") {
+                element.setAttribute("class", "nav-link active")
+            } else if (element.text==="Home") {
+                element.setAttribute("class", "nav-link")
+            }
+        }
+    </script>
+{% endblock %}
