@@ -34,7 +34,7 @@ def getClubInfo():
     return response
 
 @app.route('/')
-def hello_world():  # put application's code here
+def hello_world():
     return render_template('base.html')
 
 @app.route("/members")
@@ -42,7 +42,11 @@ def members():
     response = getMemberInfo()['members']
     return render_template('members.html', data=response)
 
-
+@app.route("/club")
+def club():
+    clubInfo = getClubInfo()['552898']
+    seasonalInfo = getSeasonalInfo()[0]
+    return render_template('club.html', club=clubInfo, seasonal=seasonalInfo)
 
 
 

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{%  block content %}
+    <div class="info container">
+        <div class="club-info row justify-content-center">
+            <div class="col-5">
+                <p class="fw-light" style="font-family: "> Eastern Europe </p>
+                <h2 class="">{{ club['name'] }}</h2>
+            </div>
+            <div class="col-1">
+                <p  style="margin-bottom: 0;">{{ seasonal['overallRankingPoints'] }}</p>
+                <p class="fw-bold">Points</p>
+            </div>
+            <div class="col-3">
+                <p> <span class="fw-bold"> Wins </span> {{ seasonal['wins'] }}</p>
+                <p><span class="fw-bold"> Losses </span> {{ seasonal['losses'] }} </p>
+                <p><span class="fw-bold"> Ties </span>{{ seasonal['ties'] }}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <h3>Division</h3>
+                <div class="row">
+                    <div class="col-4 align-middle">
+                        <img src="https://media.contentapi.ea.com/content/dam/eacom/fifa/pro-clubs/divisioncrest6.png" alt="division image here"/>
+                        <h4 class="text-center">Current Division</h4>
+                    </div>
+
+                    <div class="col-2">
+                        <h4 class="fw-bold">Points</h4>
+                        <p class="fw-light">{{ seasonal['currentDivision'] }}</p>
+                        <h4 class="fw-bold">Season</h4>
+                        <p class="fw-light">{{ seasonal['seasons'] }}</p>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="vr"></div>
+                        <h4>Recent Results</h4>
+                        {% for result in seasonal['recentResults'] %}
+                            {% if result=='wins' %}
+                                <button type="button" class="btn btn-success d-inline">W</button>
+                            {% elif result=='ties' %}
+                                <button type="button" class="btn btn-secondary d-inline">D</button>
+                            {% elif result=='' %}
+                                <button type="button" class="btn btn-light d-inline">-</button>
+                            {% else %}
+                                <button type="button" class="btn btn-danger d-inline">L</button>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
