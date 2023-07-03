@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <div class="container match-history">
+    <h2 class="text-center"> Match History </h2>
+        <ul class="list-group matches">
+            {% for match in matches %}
+                <li class="list-group-item match">
+                    <div class="match-content">
+                        {% for club in match['clubs'] %}
+                            <div class="team">
+                                <p> {{ match['clubs'][club]['details']['name'] }} </p>
+                            </div>
+                            <div class="scorePart">
+                                <p class="matchScorePart h2"> {{ match['clubs'][club]['score'] }} </p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        let navLinks = document.getElementsByClassName("nav-link")
+
+       for (let element of navLinks) {
+            if (element.text==="Games") {
+                element.setAttribute("class", "nav-link active")
+            } else if (element.text==="Home") {
+                element.setAttribute("class", "nav-link")
+            }
+        }
+
+        let matchInfos = document.getElementsByClassName("match-content")
+
+        for (let element of matchInfos) {
+            let secondScore = element.childNodes[7];
+            console.log(secondScore.innerHTML);
+            let awaySide = element.childNodes[5];
+            console.log(awaySide)
+
+            element.insertBefore(secondScore, awaySide);
+        }
+
+    </script>
+{% endblock %}

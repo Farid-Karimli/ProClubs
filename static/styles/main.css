@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.pitch-background {
+    background-image: url("../fifa-background.jpg");
+    height: 20vh;
+}
+
+.content {
+    margin-top: 5vh;
+}
+.column-item {
+    margin-top: 5vh;
+}
+
+body {
+    background-color: #ECE5C7 !important;
+}
+
+.match {
+    width: 55%;
+}
+.match-content {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.match-content div {
+    display: inline;
+    width: 20%;
+    margin: 1rem;
+}
+
+.match-content .scorePart {
+    width: 10%;
+}

@@ -56,3 +56,19 @@
     </div>
 
 {% endblock %}
+
+
+{% block scripts %}
+    <script>
+        let navLinks = document.getElementsByClassName("nav-link")
+        console.log(navLinks)
+
+       for (let element of navLinks) {
+            if (element.text==="Club") {
+                element.setAttribute("class", "nav-link active")
+            } else if (element.text==="Home") {
+                element.setAttribute("class", "nav-link")
+            }
+        }
+    </script>
+{% endblock %}
